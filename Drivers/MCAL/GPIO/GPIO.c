@@ -98,7 +98,7 @@ void MCAL_GPIO_Write_Pin(PORT GPIOSEL, uint32_t pin, uint8_t data){
 						GPIOE_DATA  |= (0x1<<pin);
 					break;
 					case 5:
-						GPIOE_DATA  |= (0x1<<pin);
+						GPIOF_DATA  |= (0x1<<pin);
 					break;
 		}
 }
@@ -120,63 +120,99 @@ uint8_t MCAL_GPIO_Read_pin(PORT GPIOSEL, uint32_t pin){
 						return GPIOE_DATA &(0x1<<pin);
 					break;
 					case 5:
-						return GPIOE_DATA &(0x1<<pin);
+						return GPIOF_DATA &(0x1<<pin);
 					break;
 		}
 }
 void MCAL_GPIO_UART_Init(UART_GPIO Select){
 		switch(Select){
 					case 0:
-						GPIOA_CR |= 0x11;
-						GPIOA_AMSEL &= ~(0x11);
-						GPIOA_AFSEL |= (0x11);
-						GPIOA_PCTL  |= (0xFF);
-						GPIOA_DEN   |= (0x11);	
+						GPIOA_CR |= 0x3;
+						GPIOA_AMSEL &= ~(0x3);
+						GPIOA_AFSEL |= (0x3);
+						GPIOA_PCTL  |= (0x11);
+						GPIOA_DEN   |= (0x3);	
 					break;
 					case 1:
 						//DIDN'T UNDERSTAND
 					break;
 					case 2:
-						GPIOD_CR    |= 	(0x11<<6);
-						GPIOD_AMSEL &= ~(0x11<<6);
-						GPIOD_AFSEL |=  (0x11<<6);
-						GPIOD_PCTL  |=  (0xFF<<6);
-						GPIOD_DEN   |=  (0x11<<6);	
+						GPIOD_CR    |= 	(0x3<<6);
+						GPIOD_AMSEL &= ~(0x3<<6);
+						GPIOD_AFSEL |=  (0x3<<6);
+						GPIOD_PCTL  |=  (0x11<<6*4);
+						GPIOD_DEN   |=  (0x3<<6);	
 					break;
 					case 3:
-						GPIOC_CR    |= 	(0x11<<6);
-						GPIOC_AMSEL &= ~(0x11<<6);
-						GPIOC_AFSEL |=  (0x11<<6);
-						GPIOC_PCTL  |=  (0xFF<<6);
-						GPIOC_DEN   |=  (0x11<<6);	
+						GPIOC_CR    |= 	(0x3<<6);
+						GPIOC_AMSEL &= ~(0x3<<6);
+						GPIOC_AFSEL |=  (0x3<<6);
+						GPIOC_PCTL  |=  (0x11<<6*4);
+						GPIOC_DEN   |=  (0x3<<6);	
 					break;
 					case 4:
-						GPIOC_CR    |= 	(0x11<<4);
-						GPIOC_AMSEL &= ~(0x11<<4);
-						GPIOC_AFSEL |=  (0x11<<4);
-						GPIOC_PCTL  |=  (0xFF<<4);
-						GPIOC_DEN   |=  (0x11<<4);	
+						GPIOC_CR    |= 	(0x3<<4);
+						GPIOC_AMSEL &= ~(0x3<<4);
+						GPIOC_AFSEL |=  (0x3<<4);
+						GPIOC_PCTL  |=  (0x11<<4*4);
+						GPIOC_DEN   |=  (0x3<<4);	
 					break;
 					case 5:
-						GPIOE_CR    |= 	(0x11<<4);
-						GPIOE_AMSEL &= ~(0x11<<4);
-						GPIOE_AFSEL |=  (0x11<<4);
-						GPIOE_PCTL  |=  (0xFF<<4);
-						GPIOE_DEN   |=  (0x11<<4);	
+						GPIOE_CR    |= 	(0x3<<4);
+						GPIOE_AMSEL &= ~(0x3<<4);
+						GPIOE_AFSEL |=  (0x3<<4);
+						GPIOE_PCTL  |=  (0x11<<4*4);
+						GPIOE_DEN   |=  (0x3<<4);	
 					break;
 					case 6:
-						GPIOD_CR    |= 	(0x11<<4);
-						GPIOD_AMSEL &= ~(0x11<<4);
-						GPIOD_AFSEL |=  (0x11<<4);
-						GPIOD_PCTL  |=  (0xFF<<4);
-						GPIOD_DEN   |=  (0x11<<4);	
+						GPIOD_CR    |= 	(0x3<<4);
+						GPIOD_AMSEL &= ~(0x3<<4);
+						GPIOD_AFSEL |=  (0x3<<4);
+						GPIOD_PCTL  |=  (0x11<<4*4);
+						GPIOD_DEN   |=  (0x3<<4);	
 					break;
 					case 7:
-						GPIOE_CR    |= 	(0x11);
-						GPIOE_AMSEL &= ~(0x11);
-						GPIOE_AFSEL |=  (0x11);
-						GPIOE_PCTL  |=  (0xFF);
-						GPIOE_DEN   |=  (0x11);	
+						GPIOE_CR    |= 	(0x3);
+						GPIOE_AMSEL &= ~(0x3);
+						GPIOE_AFSEL |=  (0x3);
+						GPIOE_PCTL  |=  (0x11*4);
+						GPIOE_DEN   |=  (0x3);	
+					break;
+		}
+}
+void MCAL_GPIO_I2C_Init(I2C_GPIO Select){
+		switch(Select){
+					case 0:
+						GPIOB_CR    |=  (0x3<<2);
+						GPIOB_AMSEL &= ~(0x3<<2);
+						GPIOB_AFSEL |=  (0x3<<2);
+						GPIOB_PCTL  |=  (0x33<<2*4);									
+						GPIOB_DEN   |=  (0x3<<2);
+						GPIOB_ODR   |=  (0x2<<2);
+					break;
+					case 1:
+						GPIOA_CR    |=  (0x3<<6);
+						GPIOA_AMSEL &= ~(0x3<<6);
+						GPIOA_AFSEL |=  (0x3<<6);
+						GPIOA_PCTL  |=  (0x33<<6*4);									
+						GPIOA_DEN   |=  (0x3<<6);
+						GPIOA_ODR   |=  (0x2<<6);
+					break;
+					case 2:
+						GPIOE_CR    |=  (0x3<<4);
+						GPIOE_AMSEL &= ~(0x3<<4);
+						GPIOE_AFSEL |=  (0x3<<4);
+						GPIOE_PCTL  |=  (0x33<<4*4);									
+						GPIOE_DEN   |=  (0x3<<4);
+						GPIOE_ODR   |=  (0x2<<4);
+					break;
+					case 3:
+						GPIOD_CR    |=  (0x3);
+						GPIOD_AMSEL &= ~(0x3);
+						GPIOD_AFSEL |=  (0x3);
+						GPIOD_PCTL  |=  (0x33);									
+						GPIOD_DEN   |=  (0x3);
+						GPIOD_ODR   |=  (0x2);
 					break;
 		}
 }

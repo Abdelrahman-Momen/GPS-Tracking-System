@@ -77,6 +77,13 @@
 #define GPIOD_DATA				(*((volatile unsigned long*)(BASE_GPIOD_APB+0x3FC)))
 #define GPIOE_DATA				(*((volatile unsigned long*)(BASE_GPIOE_APB+0x3FC)))
 #define GPIOF_DATA				(*((volatile unsigned long*)(BASE_GPIOF_APB+0x3FC)))
+//Open-drain register
+#define GPIOA_ODR				(*((volatile unsigned long*)(BASE_GPIOA_APB+0x50C)))
+#define GPIOB_ODR				(*((volatile unsigned long*)(BASE_GPIOB_APB+0x50C)))
+#define GPIOC_ODR				(*((volatile unsigned long*)(BASE_GPIOC_APB+0x50C)))
+#define GPIOD_ODR				(*((volatile unsigned long*)(BASE_GPIOD_APB+0x50C)))
+#define GPIOE_ODR				(*((volatile unsigned long*)(BASE_GPIOE_APB+0x50C)))
+#define GPIOF_ODR				(*((volatile unsigned long*)(BASE_GPIOF_APB+0x50C)))
 ////////////////////////////////////////////////////////////////////////////////////////
 //defines
 #define LOCK_KEY					0x4C4F434B
@@ -109,6 +116,9 @@ typedef enum{
 typedef enum{
 	UART0, UART1, UART2, UART3, UART4, UART5, UART6, UART7
 }UART_GPIO;
+typedef enum{
+	I2C0, I2C1, I2C2, I2C3
+}I2C_GPIO;
 
 /////////////////////////////////////////////////////////////////////////////////
 //API's
@@ -117,5 +127,6 @@ void MCAL_GPIO_Digital_Input_INIT(PORT GPIOSEL,uint32_t pin, Polarity P);// enab
 uint8_t MCAL_GPIO_Read_pin(PORT GPIOSEL, uint32_t pin); //Read the input data of a specific pin
 void MCAL_GPIO_Write_Pin(PORT GPIOSEL, uint32_t pin, uint8_t data); // Write a value on a pin
 void MCAL_GPIO_UART_Init(UART_GPIO Select); // init specific UART module
+void MCAL_GPIO_I2C_Init(I2C_GPIO Select);
 
 #endif
