@@ -1,6 +1,6 @@
 #include "GPIO.h"
 
-void HAL_GPIO_Init(PORT GPIOSEL){
+void MCAL_GPIO_Init(PORT GPIOSEL){
 		switch(GPIOSEL){
 			case 0:
 				RCGCGPIO |= PA_MASK;
@@ -34,7 +34,7 @@ void HAL_GPIO_Init(PORT GPIOSEL){
 			break;
 		}
 }
-void HAL_GPIO_Digital_Input_INIT(PORT GPIOSEL,uint32_t pin, Polarity P){
+void MCAL_GPIO_Digital_Input_INIT(PORT GPIOSEL,uint32_t pin, Polarity P){
 			switch(GPIOSEL){
 					case 0:
 						GPIOA_CR |= (0x1<<pin);
@@ -80,7 +80,7 @@ void HAL_GPIO_Digital_Input_INIT(PORT GPIOSEL,uint32_t pin, Polarity P){
 					break;
 		}
 }
-void GPIO_Write_Pin(PORT GPIOSEL, uint32_t pin, uint8_t data){
+void MCAL_GPIO_Write_Pin(PORT GPIOSEL, uint32_t pin, uint8_t data){
 	switch(GPIOSEL){
 					case 0:
 						GPIOA_DATA  |= (0x1<<pin);
@@ -102,7 +102,7 @@ void GPIO_Write_Pin(PORT GPIOSEL, uint32_t pin, uint8_t data){
 					break;
 		}
 }
-uint8_t GPIO_Read_pin(PORT GPIOSEL, uint32_t pin){
+uint8_t MCAL_GPIO_Read_pin(PORT GPIOSEL, uint32_t pin){
 	switch(GPIOSEL){
 					case 0:
 						return GPIOA_DATA &(0x1<<pin);
@@ -124,7 +124,7 @@ uint8_t GPIO_Read_pin(PORT GPIOSEL, uint32_t pin){
 					break;
 		}
 }
-void GPIO_UART_Init(UART_GPIO Select){
+void MCAL_GPIO_UART_Init(UART_GPIO Select){
 		switch(Select){
 					case 0:
 						GPIOA_CR |= 0x11;
@@ -179,16 +179,4 @@ void GPIO_UART_Init(UART_GPIO Select){
 						GPIOE_DEN   |=  (0x11);	
 					break;
 		}
-}
-void flash_RED_light(){
-			GPIOF_DATA |= 0x2;
-}
-void flash_BLUE_light(){
-			GPIOF_DATA |= 0x4;
-}
-void flash_GREEN_light(){
-			GPIOF_DATA |= 0x8;
-}
-void Close_lights(){
-			GPIOF_DATA &= ~(0xE);
 }

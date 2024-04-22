@@ -112,14 +112,10 @@ typedef enum{
 
 /////////////////////////////////////////////////////////////////////////////////
 //API's
-void HAL_GPIO_Init(PORT GPIOSEL); // just give clock to the GPIO
-void HAL_GPIO_Digital_Input_INIT(PORT GPIOSEL,uint32_t pin, Polarity P);// enable one pin as an input digital
-uint8_t GPIO_Read_pin(PORT GPIOSEL, uint32_t pin); //Read the input data of a specific pin
-void GPIO_Write_Pin(PORT GPIOSEL, uint32_t pin, uint8_t data); // Write a value on a pin
-void GPIO_UART_Init(UART_GPIO Select); // init specific UART module
-//lights
-void flash_RED_light();
-void flash_BLUE_light();
-void flash_GREEN_light();
-void Close_lights();
+void MCAL_GPIO_Init(PORT GPIOSEL); // just give clock to the GPIO
+void MCAL_GPIO_Digital_Input_INIT(PORT GPIOSEL,uint32_t pin, Polarity P);// enable one pin as an input digital
+uint8_t MCAL_GPIO_Read_pin(PORT GPIOSEL, uint32_t pin); //Read the input data of a specific pin
+void MCAL_GPIO_Write_Pin(PORT GPIOSEL, uint32_t pin, uint8_t data); // Write a value on a pin
+void MCAL_GPIO_UART_Init(UART_GPIO Select); // init specific UART module
+
 #endif
