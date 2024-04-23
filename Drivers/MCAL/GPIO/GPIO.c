@@ -248,62 +248,7 @@ uint8_t MCAL_GPIO_Read_pin(GPIO_Port_Select GPIOSEL, uint32_t pin){
 					break;
 		}
 }
-void MCAL_GPIO_UART_Init(UART_Select Select){
-		switch(Select){
-					case UART0:
-						GPIO_PORTA_CR |= 0x3;
-						GPIO_PORTA_AMSEL &= ~(0x3);
-						GPIO_PORTA_AFSEL |= (0x3);
-						GPIO_PORTA_PCTL  |= (0x11);
-						GPIO_PORTA_DEN   |= (0x3);	
-					break;
-					case UART1:
-						//DIDN'T UNDERSTAND
-					break;
-					case UART2:
-						GPIO_PORTD_CR    |= 	(0x3<<6);
-						GPIO_PORTD_AMSEL &= ~(0x3<<6);
-						GPIO_PORTD_AFSEL |=  (0x3<<6);
-						GPIO_PORTD_PCTL  |=  (0x11<<6*4);
-						GPIO_PORTD_DEN   |=  (0x3<<6);	
-					break;
-					case UART3:
-						GPIO_PORTC_CR    |= 	(0x3<<6);
-						GPIO_PORTC_AMSEL &= ~(0x3<<6);
-						GPIO_PORTC_AFSEL |=  (0x3<<6);
-						GPIO_PORTC_PCTL  |=  (0x11<<6*4);
-						GPIO_PORTC_DEN   |=  (0x3<<6);	
-					break;
-					case UART4:
-						GPIO_PORTC_CR    |= 	(0x3<<4);
-						GPIO_PORTC_AMSEL &= ~(0x3<<4);
-						GPIO_PORTC_AFSEL |=  (0x3<<4);
-						GPIO_PORTC_PCTL  |=  (0x11<<4*4);
-						GPIO_PORTC_DEN   |=  (0x3<<4);	
-					break;
-					case UART5:
-						GPIO_PORTE_CR    |= 	(0x3<<4);
-						GPIO_PORTE_AMSEL &= ~(0x3<<4);
-						GPIO_PORTE_AFSEL |=  (0x3<<4);
-						GPIO_PORTE_PCTL  |=  (0x11<<4*4);
-						GPIO_PORTE_DEN   |=  (0x3<<4);	
-					break;
-					case UART6:
-						GPIO_PORTD_CR    |= 	(0x3<<4);
-						GPIO_PORTD_AMSEL &= ~(0x3<<4);
-						GPIO_PORTD_AFSEL |=  (0x3<<4);
-						GPIO_PORTD_PCTL  |=  (0x11<<4*4);
-						GPIO_PORTD_DEN   |=  (0x3<<4);	
-					break;
-					case UART7:
-						GPIO_PORTE_CR    |= 	(0x3);
-						GPIO_PORTE_AMSEL &= ~(0x3);
-						GPIO_PORTE_AFSEL |=  (0x3);
-						GPIO_PORTE_PCTL  |=  (0x11*4);
-						GPIO_PORTE_DEN   |=  (0x3);	
-					break;
-		}
-}
+
 void MCAL_GPIO_I2C_Init(I2C_Select Select){
 		switch(Select){
 					case I2C0:
