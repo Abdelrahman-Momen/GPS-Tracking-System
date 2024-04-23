@@ -492,7 +492,7 @@ void MCAL_UART_CONFIG(UART_Select UART_NO, uint8_t DATA_BITS, uint8_t PARITY, ui
 
 //*************************************************** RX TX CONFIG **************************************************************
 
-unsigned char MCAL_UART_ReadAvailable(UART_Select UART_NO){
+uint8_t MCAL_UART_ReadAvailable(UART_Select UART_NO){
     switch(UART_NO)
     {
         case UART0:
@@ -534,7 +534,7 @@ unsigned char MCAL_UART_ReadAvailable(UART_Select UART_NO){
 
 
 
-unsigned char MCAL_UART_SendAvailable(UART_Select UART_NO){
+uint8_t MCAL_UART_SendAvailable(UART_Select UART_NO){
     switch(UART_NO)
     {
         case UART0:
