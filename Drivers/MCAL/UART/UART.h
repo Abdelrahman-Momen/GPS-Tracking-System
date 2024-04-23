@@ -280,7 +280,6 @@
 
 #define UART_MASK             0x0000000FF  //UART Mask to Read without the flags
 
-//for uart
 typedef enum{
     UART0, UART1, UART2, UART3, UART4, UART5, UART6, UART7
 }UART_Select;
