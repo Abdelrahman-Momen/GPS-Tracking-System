@@ -4,6 +4,8 @@
 #include "stdint.h"
 
 //////////////////////////////////////////////////////////////////////
+//general defines
+#define SYSTEM_CLOCK  20000000000
 // addresses
 #define RCGCGPIO			(*((volatile unsigned long*)0x40FE608))
 #define PRGPIO			(*((volatile unsigned long*)0x40FEA08))
@@ -107,26 +109,26 @@
 // for initing GPIO
 typedef enum{
 	GPIOA,GPIOB,GPIOC,GPIOD,GPIOE,GPIOF 
-}PORT;
+}PORT_select;
 //for init a pin
 typedef enum{
 	Pull_down, Pull_up
-}Polarity;
+}Polarity_select;
 //for uart
 typedef enum{
 	UART0, UART1, UART2, UART3, UART4, UART5, UART6, UART7
-}UART_GPIO;
+}UART_select;
 typedef enum{
 	I2C0, I2C1, I2C2, I2C3
-}I2C_GPIO;
+}I2C_select;
 
 /////////////////////////////////////////////////////////////////////////////////
 //API's
-void MCAL_GPIO_Init(PORT GPIOSEL); // just give clock to the GPIO
-void MCAL_GPIO_Digital_Input_INIT(PORT GPIOSEL,uint32_t pin, Polarity P);// enable one pin as an input digital
-uint8_t MCAL_GPIO_Read_pin(PORT GPIOSEL, uint32_t pin); //Read the input data of a specific pin
-void MCAL_GPIO_Write_Pin(PORT GPIOSEL, uint32_t pin, uint8_t data); // Write a value on a pin
-void MCAL_GPIO_UART_Init(UART_GPIO Select); // init specific UART module
-void MCAL_GPIO_I2C_Init(I2C_GPIO Select);
+void MCAL_GPIO_Init(PORT_select GPIOSEL); // just give clock to the GPIO
+void MCAL_GPIO_Digital_Input_INIT(PORT_select GPIOSEL,uint32_t pin, Polarity_select P);// enable one pin as an input digital
+uint8_t MCAL_GPIO_Read_pin(PORT_select GPIOSEL, uint32_t pin); //Read the input data of a specific pin
+void MCAL_GPIO_Write_Pin(PORT_select GPIOSEL, uint32_t pin, uint8_t data); // Write a value on a pin
+void MCAL_GPIO_UART_Init(UART_select Select); // init specific UART module
+void MCAL_GPIO_I2C_Init(I2C_select Select);
 
 #endif
