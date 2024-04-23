@@ -2,7 +2,7 @@
 #define GPIO_HEADER
 // libraries needed
 #include "stdint.h"
-#include "BIT_MATH.h"
+#include "BIT_MATHS.h"
 
 //////////////////////////////////////////////////////////////////////
 //general defines
