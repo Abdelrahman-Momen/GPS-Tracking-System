@@ -28,9 +28,9 @@
 #define I2C3_MTPR      (*((volatile unsigned long*)(BASE_I2C3 + 0x00C)))
 //I2C Master Slave Address
 #define	I2C0_MSA			 (*((volatile unsigned long*)(BASE_I2C0)))
-#define I2C1_MSA      (*((volatile unsigned long*)(BASE_I2C1)))
-#define	I2C2_MSA      (*((volatile unsigned long*)(BASE_I2C2)))
-#define I2C3_MSA      (*((volatile unsigned long*)(BASE_I2C3)))
+#define I2C1_MSA       (*((volatile unsigned long*)(BASE_I2C1)))
+#define	I2C2_MSA       (*((volatile unsigned long*)(BASE_I2C2)))
+#define I2C3_MSA       (*((volatile unsigned long*)(BASE_I2C3)))
 	
 //I2C Master Data
 #define	I2C0_MDR			 (*((volatile unsigned long*)(BASE_I2C0 + 0x008)))
@@ -53,6 +53,6 @@
 
 //////////////////////////////////////////////////////////////////////////
 //API's
-void MCAL_I2C_Init_master(I2C_select Select);
-uint8_t MCAL_I2C_Transmit(I2C_select Select, uint8_t address, uint8_t DATA);
+void MCAL_I2C_Init_master(I2C_Select Select);
+uint8_t MCAL_I2C_Transmit(I2C_Select Select, uint8_t address, uint8_t DATA);
 #endif
