@@ -278,7 +278,24 @@
 #define UART_PARITY_ODD       1
 #define UART_PARITY_EVEN      2
 
-void MCAL_UART_Init(UART_GPIO UART_NO, uint8_t DATA_BITS, uint8_t PARITY, uint8_t STOP_BITS);
-void MCAL_SETBRD(uint32_t BAUD_RATE, uint8_t CLK_DIV);
+#define UART_MASK             0x0000000FF  //UART Mask to Read without the flags
+
+//for uart
+typedef enum{
+    UART0, UART1, UART2, UART3, UART4, UART5, UART6, UART7
+}UART_Select;
+
+void MCAL_UART_CONFIG(UART_Select UART_NO, uint8_t DATA_BITS, uint8_t PARITY, uint8_t STOP_BITS, uint32_t BAUD_RATE, uint8_t CLK_DIV);
+void MCAL_UART_SETBRD(uint32_t BAUD_RATE, uint8_t CLK_DIV);
+void MCAL_UART_INIT(UART_Select Select);
+
+uint8_t MCAL_UART_ReadAvailable(UART_Select UART_NO);
+uint8_t MCAL_UART_SendAvailable(UART_Select UART_NO);
+
+void MCAL_UART_SendChar(UART_Select UART_NO , uint8_t Data);
+uint8_t MCAL_UART_ReadChar(UART_Select UART_NO);
+
+void MCAL_UART_SendString(UART_Select UART_NO , uint8_t *str);
+void MCAL_UART_ReadString(uint8_t UART_NO, uint8_t *buffer);
 
 #endif /* UART_h */
