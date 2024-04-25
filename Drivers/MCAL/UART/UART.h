@@ -256,7 +256,7 @@
 //initialisation scheme:
 
 #define SYSCTL_RCGCUART       (*((volatile unsigned long *)0x400FE618))
-#define UART_CLK              80000000
+#define UART_CLK              16000000		// System CLK of 16MHZ
 #define UARTEN                0x00000001
 
 #define UART_FR_TXFE          0x00000080  // UART Transmit FIFO Empty
