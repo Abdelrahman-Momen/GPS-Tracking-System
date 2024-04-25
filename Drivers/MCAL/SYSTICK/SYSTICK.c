@@ -1,6 +1,6 @@
-#include <stdint.h>
 #include "inc/tm4c123gh6pm.h"   // Include the TM4C123 register definitions
-#define clock 16000000u
+#include "SYSTICK.h"
+
 
 void SysTick_Init(uint32_t delay) {
     NVIC_ST_CTRL_R = 0;                // Disable SysTick during setup
