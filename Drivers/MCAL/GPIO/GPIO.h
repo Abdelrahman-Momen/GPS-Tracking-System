@@ -8,8 +8,8 @@
 //general defines
 #define SYSTEM_CLOCK  80000000
 // addresses
-#define RCGCGPIO			(*((volatile unsigned long*)0x40FE608))
-#define PRGPIO			(*((volatile unsigned long*)0x40FEA08))
+#define RCGCGPIO			(*((volatile unsigned long*)0x400FE608))
+#define PRGPIO				(*((volatile unsigned long*)0x400FEA08))
 //base address
 #define BASE_GPIO_PORTA_APB 		(0x40004000)
 #define BASE_GPIO_PORTB_APB 		(0x40005000)
