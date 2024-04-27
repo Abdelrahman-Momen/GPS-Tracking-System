@@ -133,7 +133,6 @@ void MCAL_GPIO_Init(GPIO_Port_Select GPIOSEL); // just give clock to the GPIO
 void MCAL_GPIO_Digital_INIT(GPIO_Port_Select GPIOSEL,uint32_t pin);// enable one pin as an input digital
 uint8_t MCAL_GPIO_Read_pin(GPIO_Port_Select GPIOSEL, uint32_t pin); //Read the input data of a specific pin
 void MCAL_GPIO_Write_Pin(GPIO_Port_Select GPIOSEL, uint32_t pin, GPIO_Write_Select data); // Write a value on a pin
-void MCAL_GPIO_UART_Init(UART_Select Select); // init specific UART module
 void MCAL_GPIO_I2C_Init(I2C_Select Select);
 void MCAL_GPIO_Digital_PIN_MODE(GPIO_Port_Select Port,uint8_t pin, GPIO_Mode_Select Mode, GPIO_Polarity_Select Polarity);
 #endif
