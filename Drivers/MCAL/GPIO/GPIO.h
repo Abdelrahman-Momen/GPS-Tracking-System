@@ -123,10 +123,6 @@ typedef enum{
 typedef enum{
 	Clear, Set
 }GPIO_Write_Select;
-//for uart
-typedef enum{
-	UART0, UART1, UART2, UART3, UART4, UART5, UART6, UART7
-}UART_Select;
 typedef enum{
 	I2C0, I2C1, I2C2, I2C3
 }I2C_Select;
