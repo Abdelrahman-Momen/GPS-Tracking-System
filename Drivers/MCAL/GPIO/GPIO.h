@@ -1,12 +1,12 @@
 #ifndef GPIO_HEADER
 #define GPIO_HEADER
 // libraries needed
-#include <stdint.h>
+#include "stdint.h"
 #include "BIT_MATHS.h"
 
 //////////////////////////////////////////////////////////////////////
 //general defines
-#define SYSTEM_CLOCK  20000000
+#define SYSTEM_CLOCK  80000000
 // addresses
 #define RCGCGPIO			(*((volatile unsigned long*)0x40FE608))
 #define PRGPIO			(*((volatile unsigned long*)0x40FEA08))
@@ -123,7 +123,10 @@ typedef enum{
 typedef enum{
 	Clear, Set
 }GPIO_Write_Select;
-
+//for uart
+typedef enum{
+	UART0, UART1, UART2, UART3, UART4, UART5, UART6, UART7
+}UART_Select;
 typedef enum{
 	I2C0, I2C1, I2C2, I2C3
 }I2C_Select;
@@ -134,6 +137,7 @@ void MCAL_GPIO_Init(GPIO_Port_Select GPIOSEL); // just give clock to the GPIO
 void MCAL_GPIO_Digital_INIT(GPIO_Port_Select GPIOSEL,uint32_t pin);// enable one pin as an input digital
 uint8_t MCAL_GPIO_Read_pin(GPIO_Port_Select GPIOSEL, uint32_t pin); //Read the input data of a specific pin
 void MCAL_GPIO_Write_Pin(GPIO_Port_Select GPIOSEL, uint32_t pin, GPIO_Write_Select data); // Write a value on a pin
+void MCAL_GPIO_UART_Init(UART_Select Select); // init specific UART module
 void MCAL_GPIO_I2C_Init(I2C_Select Select);
 void MCAL_GPIO_Digital_PIN_MODE(GPIO_Port_Select Port,uint8_t pin, GPIO_Mode_Select Mode, GPIO_Polarity_Select Polarity);
 #endif
