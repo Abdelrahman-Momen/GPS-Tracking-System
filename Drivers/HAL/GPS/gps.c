@@ -13,8 +13,11 @@ float currentlong;
 
 char*token;
 
+
 char GPS[80];
 char GPS_formated[12][20];
+
+void MCAL_UART_INIT(UART0);// init uart0 for port A  
 
 
 char GPS_LogName[] = "$GPRMC,";
