@@ -1,5 +1,6 @@
 // gps.h 
-
+#ifndef GPS_h
+#define GPS_h
 
 // gps module 
 #include <string.h>
@@ -12,5 +13,6 @@ float ToDegree (float angle); //distance to degree
 float ToRad(float angle);// angle in degree to rad 
 float GPS_GetDistance (float currentLong,float currentLat, float destlong,float destlat);// distance fn (The Haversine Formula)
 
+#endif   //GPS_h
 
 	
