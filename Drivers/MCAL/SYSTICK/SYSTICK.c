@@ -12,7 +12,7 @@ void SysTick_Init(uint32_t delay) {
 void systick_delay(uint32_t time_ms)
 {
 uint32_t tick_num;
-tick_num = (time_ms * 0.001 * clock)-1 ; // number of clock edges in time in ms
+tick_num = (time_ms * 0.001 * clock) ; // number of clock edges in time in ms
 SysTick_Init(tick_num);
 while ( NVIC_ST_CTRL_R & 0x00010000 == 0);
 }
