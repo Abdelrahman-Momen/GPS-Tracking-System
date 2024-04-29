@@ -144,6 +144,8 @@ void MCAL_UART_CONFIG(UART_Select UART_NO, uint8_t DATA_BITS, uint8_t PARITY, ui
             UART0_LCRH &= ~((DATA_BITS - 5) << UART_LCRH_WLEN);     //clear before write
             UART0_LCRH |= (DATA_BITS - 5) << UART_LCRH_WLEN;        //set data format
             
+            UART0_LCRH |= UART_LCRH_FEN;                            //enable FIFO
+            
             if(PARITY == UART_PARITY_DISABLE)                       //PARITY = 0 --> disable stick parity
             {
                 UART0_LCRH &= ~(UART_LCRH_PEN | UART_LCRH_EPS | UART_LCRH_SPS);
@@ -189,7 +191,9 @@ void MCAL_UART_CONFIG(UART_Select UART_NO, uint8_t DATA_BITS, uint8_t PARITY, ui
             UART1_FBRD |= FBRD;                                     //write claculated baud rate float
             
             UART1_LCRH &= ~((DATA_BITS - 5) << UART_LCRH_WLEN);     //clear before write
-            UART1_LCRH |= (DATA_BITS - 5) << UART_LCRH_WLEN;        //set data format         //set data format
+            UART1_LCRH |= (DATA_BITS - 5) << UART_LCRH_WLEN;        //set data format
+            
+            UART1_LCRH |= UART_LCRH_FEN;                            //enable FIFO
             
             if(PARITY == UART_PARITY_DISABLE)                       //PARITY = 0 --> disable stick parity
             {
@@ -238,6 +242,8 @@ void MCAL_UART_CONFIG(UART_Select UART_NO, uint8_t DATA_BITS, uint8_t PARITY, ui
             UART2_LCRH &= ~((DATA_BITS - 5) << UART_LCRH_WLEN);     //clear before write
             UART2_LCRH |= (DATA_BITS - 5) << UART_LCRH_WLEN;        //set data format
             
+            UART2_LCRH |= UART_LCRH_FEN;                            //enable FIFO
+            
             if(PARITY == UART_PARITY_DISABLE)                       //PARITY = 0 --> disable stick parity
             {
                 UART2_LCRH &= ~(UART_LCRH_PEN | UART_LCRH_EPS | UART_LCRH_SPS);
@@ -284,6 +290,8 @@ void MCAL_UART_CONFIG(UART_Select UART_NO, uint8_t DATA_BITS, uint8_t PARITY, ui
             
             UART3_LCRH &= ~((DATA_BITS - 5) << UART_LCRH_WLEN);     //clear before write
             UART3_LCRH |= (DATA_BITS - 5) << UART_LCRH_WLEN;        //set data format
+            
+            UART3_LCRH |= UART_LCRH_FEN;                            //enable FIFO
             
             if(PARITY == UART_PARITY_DISABLE)                       //PARITY = 0 --> disable stick parity
             {
@@ -332,6 +340,8 @@ void MCAL_UART_CONFIG(UART_Select UART_NO, uint8_t DATA_BITS, uint8_t PARITY, ui
             UART4_LCRH &= ~((DATA_BITS - 5) << UART_LCRH_WLEN);     //clear before write
             UART4_LCRH |= (DATA_BITS - 5) << UART_LCRH_WLEN;        //set data format
             
+            UART4_LCRH |= UART_LCRH_FEN;                            //enable FIFO
+            
             if(PARITY == UART_PARITY_DISABLE)                       //PARITY = 0 --> disable stick parity
             {
                 UART4_LCRH &= ~(UART_LCRH_PEN | UART_LCRH_EPS | UART_LCRH_SPS);
@@ -378,6 +388,8 @@ void MCAL_UART_CONFIG(UART_Select UART_NO, uint8_t DATA_BITS, uint8_t PARITY, ui
             
             UART5_LCRH &= ~((DATA_BITS - 5) << UART_LCRH_WLEN);     //clear before write
             UART5_LCRH |= (DATA_BITS - 5) << UART_LCRH_WLEN;        //set data format
+            
+            UART5_LCRH |= UART_LCRH_FEN;                            //enable FIFO
             
             if(PARITY == UART_PARITY_DISABLE)                       //PARITY = 0 --> disable stick parity
             {
@@ -426,6 +438,8 @@ void MCAL_UART_CONFIG(UART_Select UART_NO, uint8_t DATA_BITS, uint8_t PARITY, ui
             UART6_LCRH &= ~((DATA_BITS - 5) << UART_LCRH_WLEN);     //clear before write
             UART6_LCRH |= (DATA_BITS - 5) << UART_LCRH_WLEN;        //set data format
             
+            UART6_LCRH |= UART_LCRH_FEN;                            //enable FIFO
+            
             if(PARITY == UART_PARITY_DISABLE)                       //PARITY = 0 --> disable stick parity
             {
                 UART6_LCRH &= ~(UART_LCRH_PEN | UART_LCRH_EPS | UART_LCRH_SPS);
@@ -472,6 +486,8 @@ void MCAL_UART_CONFIG(UART_Select UART_NO, uint8_t DATA_BITS, uint8_t PARITY, ui
             
             UART7_LCRH &= ~((DATA_BITS - 5) << UART_LCRH_WLEN);     //clear before write
             UART7_LCRH |= (DATA_BITS - 5) << UART_LCRH_WLEN;        //set data format
+            
+            UART7_LCRH |= UART_LCRH_FEN;                            //enable FIFO
             
             if(PARITY == UART_PARITY_DISABLE)                       //PARITY = 0 --> disable stick parity
             {
