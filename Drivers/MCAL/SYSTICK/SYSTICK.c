@@ -4,7 +4,6 @@
 
 void SysTick_Init(uint32_t delay) {
     NVIC_ST_CTRL_R = 0;                // Disable SysTick during setup
-    de
     NVIC_ST_RELOAD_R = delay - 1;      // Set reload value for the specified delay
     NVIC_ST_CURRENT_R = 0;             // Clear the current register value
     NVIC_ST_CTRL_R = NVIC_ST_CTRL_ENABLE | NVIC_ST_CTRL_CLK_SRC; // Enable SysTick with core clock
