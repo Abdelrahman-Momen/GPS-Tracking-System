@@ -1,18 +1,17 @@
 #include "inc/tm4c123gh6pm.h"   // Include the TM4C123 register definitions
 #include "SYSTICK.h"
 
-
-void SysTick_Init(uint32_t delay) {
-    NVIC_ST_CTRL_R = 0;                // Disable SysTick during setup
-    NVIC_ST_RELOAD_R = delay - 1;      // Set reload value for the specified delay
-    NVIC_ST_CURRENT_R = 0;             // Clear the current register value
-    NVIC_ST_CTRL_R = NVIC_ST_CTRL_ENABLE | NVIC_ST_CTRL_CLK_SRC; // Enable SysTick with core clock
+void SysTick_Init() {
+    NVIC_ST_CTRL_R = 0;               													
+    NVIC_ST_RELOAD_R = 16000 - 1; 											
+    NVIC_ST_CURRENT_R = 0;            													
+    NVIC_ST_CTRL_R = NVIC_ST_CTRL_ENABLE | NVIC_ST_CTRL_CLK_SRC;
 }
 
-void systick_delay(uint32_t time_ms)
-{
-uint32_t tick_num;
-tick_num = (time_ms * 0.001 * clock) ; // number of clock edges in time in ms
-SysTick_Init(tick_num);
-while ( NVIC_ST_CTRL_R & 0x00010000 == 0);
+void systick_delay(uint32_t time_ms){
+	uint32_t seconds =0;
+	for(seconds = 0;seconds<time_ms;seconds++){
+		SysTick_Init();
+		while ( (NVIC_ST_CTRL_R & 0x00010000) == 0);
+	}
 }
