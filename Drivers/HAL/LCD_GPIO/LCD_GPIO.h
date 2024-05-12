@@ -1,5 +1,5 @@
 #ifndef LCD_GPIO_H_
-#define LCD_H_
+#define LCD_GPIO_H_
 
 #include "stdint.h"
 #include "tm4c123gh6pm.h"
