@@ -6,9 +6,9 @@
 # GPS-Tracking-System 📡 🗺️
 
 ## 📜 Project Description
-This project belongs to **Introduction to Embedded Systems** **CSE211s**
+This project belongs to **Introduction to Embedded Systems** **CSE211s** Course
 
-The purpose of this project is to design a GPS-tracking System that collects posiion co-ordinates then display the trajectory of motoion
+The purpose of this project is to design a GPS-tracking System that collects position co-ordinates then display the trajectory of motoion
 
 
 ## The how-to 💡
