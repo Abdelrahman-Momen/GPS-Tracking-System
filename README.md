@@ -23,6 +23,10 @@ The purpose of this project is to design a GPS-tracking System that collects pos
 - **Microcontroller ( ARM® Cortex®-M4F Based MCU TM4C123G "TivaC" ) 🀆**
 -  **GPS module**  📍🗺️
 - **LCD** 🖥️
+-  **Circuit diagram**![Circuit Diagram](https://github.com/Abdelrahman-Momen/GPS-Tracking-System/assets/167685632/dc89b5fc-f164-46dc-98c6-667b24bf983c)
+
+
+  
 
 ## Software Used
 - **Keil 4** for C enviroment
