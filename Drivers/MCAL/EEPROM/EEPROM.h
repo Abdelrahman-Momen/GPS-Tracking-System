@@ -32,7 +32,10 @@ typedef enum {
 }EEPROM_error_t;
 
 EEPROM_error_t MCAL_EEPROM_Init(void);
-void MCAL_EEPROM_write(uint16_t address, float* data, uint8_t length);
-void MCAL_EEPROM_read(uint16_t address, float* buffer, uint8_t length);
+void MCAL_EEPROM_massErase(void);
+void MCAL_EEPROM_write(uint16_t *address, float* data, uint8_t length);
+void MCAL_EEPROM_write_specific(uint8_t data);
+void MCAL_EEPROM_read(uint16_t *address, float* buffer, uint8_t length);
+void MCAL_EEPROM_read_specific(uint16_t* buffer);
 
 #endif // !EEPROM_H
