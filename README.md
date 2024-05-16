@@ -15,9 +15,9 @@ The purpose of this project is to design a GPS-tracking System that collects pos
 
 - **Collection of Data**: Gps module is resposible of Collecting real time co-ordinates 🌎
 
-- **End point**: Once the distance exceeds 100m, button pressed to endicate stop position 🎌  
+- **End point**: Once a button pressed it endicates a stop position 🎌  
 
-- **Data transfer** : The collected data is being transffered to PC Via UART Protocol ⏩ 🌐
+- **Data transfer** : The collected data is being transffered to PC when it send 'U' character Via UART Protocol ⏩ 🌐
 
 ## Hardware Used
 - **Microcontroller ( ARM® Cortex®-M4F Based MCU TM4C123G "TivaC" ) 🀆**
@@ -27,6 +27,7 @@ The purpose of this project is to design a GPS-tracking System that collects pos
 ## Software Used
 - **Keil 4** for C enviroment
 - **Python** for Mapping Api
+- **Adobe Illustrator** for Circuit Diagram
 
 ## Drivers
 - [**HAL**](https://github.com/Abdelrahman-Momen/GPS-Tracking-System/tree/main/Drivers/HAL)
