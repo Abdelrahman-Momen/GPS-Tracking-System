@@ -49,7 +49,7 @@ void GPS_Read(){
 void GPS_FORMAT(float* arr)
 {
 	char counter = 0;
-	
+	float speed;
 	token = strtok(GPS,","); // first time parameter = gps array
 	do 
 	{
@@ -72,10 +72,11 @@ void GPS_FORMAT(float* arr)
 			currentlong = atof(GPS_formated[4]);
 		else
 			currentlong = - atof(GPS_formated[4]);
-		
+		speed = atof(GPS_formated[6]);
 		
 		 arr[0] 	= currentLat;
 		 arr[1]   = currentlong;
+		 arr[2] = speed;
 	}
 }
 		
