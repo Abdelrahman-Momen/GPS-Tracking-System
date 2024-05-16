@@ -1,3 +1,8 @@
+<div id="header" align="left">
+ <img src="https://techcommunity.microsoft.com/t5/image/serverpage/image-id/232167iC2EB89FC22ADA11E/image-size/original?v=v2&px=-1">
+</div>
+
+
 # GPS-Tracking-System 📡 🗺️
 
 ## 📜 Project Description
@@ -17,6 +22,7 @@ The purpose of this project is to design a GPS-tracking System that collects pos
 ## Hardware Used
 - **Microcontroller ( ARM® Cortex®-M4F Based MCU TM4C123G "TivaC" ) 🀆**
 -  **GPS module**  📍🗺️
+- **LCD** 🖥️
 
 ## Software Used
 - **Keil 4** for C enviroment
